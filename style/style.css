@@ -4,3 +4,8 @@
 body {
     font-family: 'Roboto Mono', monospace;
 }
+
+div.box {
+    width: 150px;
+    height: 150px;
+}

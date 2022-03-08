@@ -13,6 +13,10 @@
 window.onload = createNumBoxes();
 let startTime = 0;
 
+setTimeout(() => {
+        document.getElementById('numbers').style.display = 'none';
+    }, 30000);
+
 function createNumBoxes() {
     // Selecting numbers div container from DOM
     const container = document.getElementById('numbers');
@@ -20,10 +24,15 @@ function createNumBoxes() {
     for (let i = 1; i <= 5; i++) {
         let box = document.createElement('div');
         box.classList.add(
+            'box',
             'rounded-3',
             'bg-secondary',
             'text-white',
-            'p-3'
+            'display-3',
+            'mx-3',
+            'd-flex',
+            'justify-content-center',
+            'align-items-center'
             );
         container.appendChild(box);
         let numbers = createRandomNumbers(1,100);
@@ -35,7 +44,9 @@ function createRandomNumbers(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function timerDisplay() {
-    let startTime = 0;
-}
+function checkInputNumbers() {}
+
+// function timerDisplay() {
+//     let startTime = 0;
+// }
 // Da lì parte un timer di 30 secondi.
