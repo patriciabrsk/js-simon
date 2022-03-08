@@ -16,33 +16,22 @@ const result = document.getElementById('result');
 
 window.onload = createNumBoxes();
 
-let timeLeft = 30;
+let timeLeft = 29;
 let counter = document.getElementById('counter');
 var timer = setInterval(countdown, 1000);
 
 function countdown() {
     if (timeLeft == -1) {
         clearTimeout(timer);
-        container.style.display = 'none';
+        container.classList.add('invisible');
+        counter.style.display = 'none';
+    
     } else {
         counter.innerHTML = timeLeft + ' seconds remaining';
         console.log(counter);
         timeLeft--;
     }
 }
-
-// setTimeout(() => {
-//         container.style.display = 'none';
-
-//         // Dopo 30 secondi l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
-//         const userInput = [];
-
-//         for (let i = 0; i < userInput.length; i++) {
-//             parseInt(prompt('Insert all the numbers you have memorized:')).split('',' ');
-//         }
-
-//         const nums = createNumsList(1, 5);
-//     }, 30000);
 
 function createNumBoxes() {
 
@@ -78,9 +67,14 @@ function createRandomNumbers(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function checkInputNumbers() {}
+// const nums = createNumsList(1, 5);
 
-// function timerDisplay() {
-//     let startTime = 0;
-// }
-// Da lì parte un timer di 30 secondi.
+function checkInputNumbers() {
+    // Dopo 30 secondi l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
+    const input = [];
+
+    for (let i = 0; i < 5; i++) {
+        let userInput = parseInt(prompt('Insert the number you have memorized:'));
+        input.push(userInput[i]);
+    }
+}
